@@ -43,11 +43,15 @@ if (process.env.NODE_ENV === "production") {
     app.set("trust proxy", 1);
 }
 
-const store = MongoStore.create({
+// const store = MongoStore.create({
+//     mongoUrl: dbUrl,
+//     crypto: {
+//         secret: process.env.SECRET,
+//     },
+//     touchAfter: 24 * 3600,
+// });
+const store = new MongoStore({
     mongoUrl: dbUrl,
-    crypto: {
-        secret: process.env.SECRET,
-    },
     touchAfter: 24 * 3600,
 });
 
