@@ -53,7 +53,11 @@
 
             <div class="mb-3">
                 Original listing image <br>
-                <img src="<%= listing.image.url%>" >
+                <img
+    src="<%= listing.image?.url || 'https://placehold.co/600x400?text=No+Image' %>"
+    alt="Current Listing Image"
+    style="width: 200px; height: 130px; object-fit: cover; border-radius: 10px;"
+>
             </div>
             <!-- Image -->
             <div class="mb-3">

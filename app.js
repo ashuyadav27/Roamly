@@ -43,15 +43,11 @@ if (process.env.NODE_ENV === "production") {
     app.set("trust proxy", 1);
 }
 
-// const store = MongoStore.create({
-//     mongoUrl: dbUrl,
-//     crypto: {
-//         secret: process.env.SECRET,
-//     },
-//     touchAfter: 24 * 3600,
-// });
-const store = new MongoStore({
+const store = MongoStore.create({
     mongoUrl: dbUrl,
+    crypto: {
+        secret: process.env.SECRET,
+    },
     touchAfter: 24 * 3600,
 });
 
@@ -145,6 +141,7 @@ app.use((err, req, res, next) => {
 });
 
 // const MONGO_URL = 'mongodb://127.0.0.1:27017/wanderlust';
+
 
 async function main() {
     if (!dbUrl) {
